@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue | Conditions </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://unpkg.com/vue@3"></script>
+</head>
+
+<body>
+    <div id="app">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-8 offset-2 p-2">
+                    <h1 v-if="!showContainer" class="text-danger">BAŞLANGIÇTA GÖZÜKECEK</h1>
+                    <h1 v-else class="text-primary">SONRA GÖZÜKECEK</h1>
+                    <button class="btn btn-sm btn-success" @click="showContainer = !showContainer">Show/Hide</button>
+                    <hr>
+                    <h3 :class="{'bg-success text-light' : counter > 0, 'bg-danger text-light' : counter < 0}">
+                         {{ counter }} </h3>
+                    <button class="btn btn-sm btn-primary" @click="counter++">+</button>
+                    <button class="btn btn-sm btn-danger" @click="counter--">-</button>
+                    <p v-if="counter > 0">Counter <b>sıfır</b>'dan büyüktür</p>
+                    <p v-else-if="counter < 0">Counter <b>sıfır</b>'dan küçüktür</p>
+                    <p v-else>Counter <b>sıfır</b>'a eşittir</p>
+                    <!-- v-if elementi DOM üzerinden kaldırır -->
+                    <hr>
+                    <p v-show="counter > 0">Counter <b>sıfır</b>'dan büyüktür</p>
+                    <p v-show="counter < 0">Counter <b>sıfır</b>'dan küçüktür</p>
+                    <p v-show="counter === 0">Counter <b>sıfır</b>'a eşittir</p>
+                    <!-- v-show elementi display olarak gizleyip açar  -->
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3"></script>
+
+</head>
+<style>
+    .box {
+        border: 1px dashed #666;
+        width: 200px;
+        height: 200px;
+        background-color: beige;
+        margin-top: 10px;
+    }
+</style>
+
+<body>
+    <div id="app">
+        <h1>{{ msg }}</h1>
+        <p> {{ content }} </p>
+        <a :href="eduflow.url" :alt="eduflow.alt" :target="eduflow.target">{{ eduflow.text }}</a> <br> <br>
+        <button v-on:click="changeTitle('btn1 üzerinden gelen title')"> BTN1 </button>
+        <!-- @click="changeTitle" şeklinde de yazabiliriz -->
+        <button v-on:click="changeTitle('btn2 üzerinden gelen title')"> BTN2 </button>
+
+        <div @mousemove="updateCoords('mouseMoove', $event)" class="box"
+            @click="changeTitle('box üzerinden gelen title')">
+            <span>  {{coords.x}}, {{coords.y}} </span>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
