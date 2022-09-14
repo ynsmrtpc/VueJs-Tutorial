@@ -26,3 +26,4 @@ dist-ssr
 .DS_Store
 vuejs-logo.png
 Icon
+.prettierrc
