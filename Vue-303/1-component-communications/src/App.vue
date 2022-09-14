@@ -1,5 +1,32 @@
 <template>
   <div class="container">
-    <h3>Bu benim containerım</h3>
+    <UserSection />
   </div>
 </template>
+
+<script>
+import UserSection from "./components/UserSection.vue";
+export default {
+  components: {
+    UserSection,
+  },
+  data() {
+    return {
+      provideData: {
+        userList: ["Yunus", "Sude", "Hatice", "Namık", "Aleyna"],
+      },
+    };
+  },
+  methods: {
+    newItem(item) {
+      this.provideData.userList.push(item);
+    },
+  },
+  provide() {
+    return {
+      userList: this.provideData.userList,
+      newItem: this.newItem,
+    };
+  },
+};
+</script>
